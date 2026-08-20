@@ -34,7 +34,7 @@ I build clean, modern and responsive websites for individuals, students and smal
 
 View my portfolio:
 
-https://github.com/EnriqueAnon/enriquez-portfolio.git
+https://enriqueanon.github.io/enriquez-portfolio/
 
 ## 📬 Contact
 
