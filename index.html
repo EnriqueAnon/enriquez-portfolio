@@ -22,7 +22,7 @@ nav ul a:hover{color:#000}
 .hero h1 span{color:#777}
 .hero p{font-size:21px;color:#6e6e73;max-width:700px;margin:28px auto;line-height:1.6}
 .hero-actions{display:flex;gap:14px;margin-top:10px}
-.btn{display:inline-block;background:#111;color:#fff;padding:14px 24px;border-radius:999px;font-weight:600;font-size:15px;transition:.2s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#111;color:#fff;padding:14px 24px;border-radius:999px;font-weight:600;font-size:15px;transition:.2s}
 .btn:hover{transform:translateY(-2px)}
 .btn-light{background:#fff;color:#111;border:1px solid #d8d8d8}
 .preview{width:min(1050px,92%);margin-top:70px;background:#fff;border-radius:28px;padding:18px;box-shadow:0 20px 70px rgba(0,0,0,.12)}
@@ -39,6 +39,7 @@ nav ul a:hover{color:#000}
 .phone-pill{width:45px;height:10px;background:#111;border-radius:10px;margin:auto}
 .phone-title{margin-top:35px;font-size:17px;font-weight:700}
 .phone-line{height:7px;background:#eee;border-radius:20px;margin-top:9px}
+.fake-btn{width:95px;height:30px;background:#111;border-radius:30px;margin-top:22px}
 section{padding:110px 7%}
 .section-head{text-align:center;max-width:750px;margin:0 auto 55px}
 .section-head small{color:#888;font-weight:600}
@@ -53,17 +54,18 @@ section{padding:110px 7%}
 .card p{font-size:15px;color:#777;line-height:1.7}
 .projects{background:#fff}
 .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:1200px;margin:auto}
-.project{background:#f5f5f7;border-radius:28px;overflow:hidden}
-.project-visual{height:350px;display:flex;align-items:center;justify-content:center;padding:35px;background:linear-gradient(145deg,#f8f8f8,#e8e8e8)}
-.project-window{width:90%;height:230px;background:#fff;border-radius:14px;box-shadow:0 15px 40px rgba(0,0,0,.12);padding:22px}
-.fake-nav{height:12px;width:100%;background:#f0f0f0;border-radius:20px;margin-bottom:30px}
-.fake-title{font-size:28px;font-weight:700;letter-spacing:-1px}
-.fake-sub{color:#999;margin-top:8px}
-.fake-btn{width:95px;height:30px;background:#111;border-radius:30px;margin-top:22px}
+.project{background:#f5f5f7;border-radius:28px;overflow:hidden;transition:.3s}
+.project:hover{transform:translateY(-5px);box-shadow:0 18px 45px rgba(0,0,0,.08)}
+.project-visual{height:350px;overflow:hidden;background:#eee}
+.project-visual a{display:block;width:100%;height:100%}
+.project-visual img{width:100%;height:100%;object-fit:cover;display:block;transition:.5s}
+.project:hover .project-visual img{transform:scale(1.03)}
 .project-info{padding:28px 30px 34px}
 .project-info small{color:#888;font-weight:600}
 .project-info h3{font-size:25px;margin:8px 0}
 .project-info p{color:#777;font-size:15px;line-height:1.6}
+.project-link{display:inline-flex;align-items:center;gap:7px;margin-top:18px;font-size:14px;font-weight:600}
+.project-link:hover{opacity:.6}
 .about{background:#f5f5f7}
 .about-wrap{max-width:1200px;margin:auto;display:grid;grid-template-columns:1.1fr .9fr;gap:25px}
 .about-card{background:#fff;border-radius:28px;padding:45px}
@@ -86,6 +88,7 @@ section{padding:110px 7%}
 .contact-box h2{font-size:54px;line-height:1.05;letter-spacing:-2.5px;margin:12px 0 20px}
 .contact-box p{color:#bbb;font-size:18px;max-width:600px;margin:0 auto 30px}
 .contact-box .btn{background:#fff;color:#111}
+.whatsapp-icon{width:21px;height:21px;fill:currentColor}
 footer{padding:30px 7%;display:flex;justify-content:space-between;color:#888;font-size:13px;border-top:1px solid #eee}
 @media(max-width:900px){
 nav ul{display:none;position:absolute;top:64px;left:0;width:100%;padding:25px;background:rgba(255,255,255,.97);flex-direction:column;text-align:center;border-bottom:1px solid #eee}
@@ -109,8 +112,7 @@ nav ul.show{display:flex}
 .browser-content{padding:30px 20px}
 .browser-text h2{font-size:35px}
 .device-card{height:260px}
-.project-visual{height:270px}
-.project-window{height:190px}
+.project-visual{height:250px}
 .about-card,.skills-card{padding:30px}
 .about-card h2{font-size:38px}
 .stats{grid-template-columns:1fr}
@@ -121,8 +123,9 @@ footer{flex-direction:column;gap:10px;text-align:center}
 </style>
 </head>
 <body>
+
 <nav>
-<div class="logo">Enrique.</div>
+<div class="logo">Enriquez.</div>
 <ul id="menu">
 <li><a href="#home">Home</a></li>
 <li><a href="#services">Services</a></li>
@@ -130,26 +133,33 @@ footer{flex-direction:column;gap:10px;text-align:center}
 <li><a href="#about">About</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
-<a href="#contact" class="nav-btn">Let's Work</a>
+<a href="https://wa.me/601129554392" target="_blank" class="nav-btn">Let's Work</a>
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
 </nav>
+
 <section class="hero" id="home">
 <div class="eyebrow">WEB DESIGN & DEVELOPMENT</div>
 <h1>Websites designed to feel <span>simple.</span></h1>
 <p>I create clean, modern and responsive websites for individuals, students and small businesses. Designed to look good, feel smooth and work beautifully on every device.</p>
 <div class="hero-actions">
 <a href="#projects" class="btn">View My Work</a>
-<a href="#contact" class="btn btn-light">Start a Project</a>
+<a href="https://wa.me/601129554392" target="_blank" class="btn btn-light">Start a Project</a>
 </div>
+
 <div class="preview">
 <div class="browser">
-<div class="browser-top"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="browser-top">
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+</div>
 <div class="browser-content">
 <div class="browser-text">
 <small>MODERN WEB EXPERIENCE</small>
 <h2>Build your presence online.</h2>
 <p>Clean design, responsive layout and a simple experience made for your needs.</p>
 </div>
+
 <div class="device-card">
 <div class="phone">
 <div class="phone-pill"></div>
@@ -164,173 +174,241 @@ footer{flex-direction:column;gap:10px;text-align:center}
 </div>
 </div>
 </section>
+
 <section class="services" id="services">
 <div class="section-head">
 <small>WHAT I DO</small>
 <h2>Everything you need for a clean website.</h2>
 <p>Simple web solutions for students, personal brands, businesses and anyone who wants a better online presence.</p>
 </div>
+
 <div class="service-grid">
+
 <div class="card">
 <div class="icon">◉</div>
 <h3>Personal Portfolio</h3>
 <p>Professional portfolio websites to showcase your profile, skills, projects, achievements and experience.</p>
 </div>
+
 <div class="card">
 <div class="icon">⌘</div>
 <h3>Assignment Website</h3>
 <p>Websites for college assignments, academic projects, demonstrations and final presentations.</p>
 </div>
+
 <div class="card">
 <div class="icon">↗</div>
 <h3>Landing Page</h3>
 <p>Simple and modern landing pages designed to present a product, service, event or idea clearly.</p>
 </div>
+
 <div class="card">
 <div class="icon">▣</div>
 <h3>Company Profile</h3>
 <p>Professional company websites for introducing your brand, services, information and contact details.</p>
 </div>
+
 <div class="card">
 <div class="icon">⌂</div>
 <h3>Small Business</h3>
 <p>Responsive websites for small businesses, local services, freelancers and UMKM.</p>
 </div>
+
 <div class="card">
 <div class="icon">↻</div>
 <h3>Website Redesign</h3>
 <p>Refresh an existing website with a cleaner design, better layout and improved mobile experience.</p>
 </div>
+
 </div>
 </section>
+
 <section class="projects" id="projects">
+
 <div class="section-head">
 <small>SELECTED WORK</small>
 <h2>Projects built with simplicity in mind.</h2>
 <p>A few examples of the types of websites I can design and build.</p>
 </div>
+
 <div class="project-grid">
+
+<!-- PROJECT 1 -->
 <div class="project">
 <div class="project-visual">
-<div class="project-window">
-<div class="fake-nav"></div>
-<div class="fake-title">Alex Morgan.</div>
-<div class="fake-sub">Designer & Developer</div>
-<div class="fake-btn"></div>
-</div>
+<a href="#" target="_blank">
+<img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=80" alt="Personal Portfolio Website">
+</a>
 </div>
 <div class="project-info">
 <small>PERSONAL PORTFOLIO</small>
 <h3>Minimal Portfolio Website</h3>
 <p>A clean portfolio website designed to highlight personal information, skills, projects and experience.</p>
+<a href="#" target="_blank" class="project-link">View Project →</a>
 </div>
 </div>
+
+<!-- PROJECT 2 -->
 <div class="project">
 <div class="project-visual">
-<div class="project-window">
-<div class="fake-nav"></div>
-<div class="fake-title">Studio One.</div>
-<div class="fake-sub">Creative Digital Solutions</div>
-<div class="fake-btn"></div>
-</div>
+<a href="#" target="_blank">
+<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Business Website">
+</a>
 </div>
 <div class="project-info">
 <small>COMPANY PROFILE</small>
 <h3>Business Website</h3>
 <p>A modern company profile website built to introduce services, business information and contact details.</p>
+<a href="#" target="_blank" class="project-link">View Project →</a>
 </div>
 </div>
+
+<!-- PROJECT 3 -->
 <div class="project">
 <div class="project-visual">
-<div class="project-window">
-<div class="fake-nav"></div>
-<div class="fake-title">Smart Campus.</div>
-<div class="fake-sub">College Project Website</div>
-<div class="fake-btn"></div>
-</div>
+<a href="#" target="_blank">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Assignment Website">
+</a>
 </div>
 <div class="project-info">
 <small>ACADEMIC PROJECT</small>
 <h3>Assignment Website</h3>
 <p>A simple academic project website created for college presentations, assignments and demonstrations.</p>
+<a href="#" target="_blank" class="project-link">View Project →</a>
 </div>
 </div>
+
+<!-- PROJECT 4 -->
 <div class="project">
 <div class="project-visual">
-<div class="project-window">
-<div class="fake-nav"></div>
-<div class="fake-title">Daily Brew.</div>
-<div class="fake-sub">Coffee Made Simple</div>
-<div class="fake-btn"></div>
-</div>
+<a href="#" target="_blank">
+<img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80" alt="Local Business Website">
+</a>
 </div>
 <div class="project-info">
 <small>SMALL BUSINESS</small>
 <h3>Local Business Website</h3>
 <p>A responsive website designed to help a small business present its products and services online.</p>
+<a href="#" target="_blank" class="project-link">View Project →</a>
 </div>
 </div>
+
 </div>
 </section>
+
 <section class="about" id="about">
 <div class="about-wrap">
+
 <div class="about-card">
 <small>ABOUT ME</small>
 <h2>I turn ideas into <span>clean digital experiences.</span></h2>
 <p>Hi, I'm Enrique Glenn. I build modern, responsive and user-friendly websites for personal use, assignments, portfolios and small businesses.</p>
 <p>My focus is on simple layouts, clear content, smooth mobile responsiveness and websites that feel professional without being complicated.</p>
+
 <div class="stats">
-<div class="stat"><strong>100%</strong><span>Responsive</span></div>
-<div class="stat"><strong>Clean</strong><span>Modern Design</span></div>
-<div class="stat"><strong>Custom</strong><span>Built for You</span></div>
+<div class="stat">
+<strong>100%</strong>
+<span>Responsive</span>
+</div>
+
+<div class="stat">
+<strong>Clean</strong>
+<span>Modern Design</span>
+</div>
+
+<div class="stat">
+<strong>Custom</strong>
+<span>Built for You</span>
 </div>
 </div>
+</div>
+
 <div class="skills-card">
 <h3>Skills & Tools</h3>
+
 <div class="skill">
-<div class="skill-top"><span>HTML</span><span>95%</span></div>
+<div class="skill-top">
+<span>HTML</span>
+<span>95%</span>
+</div>
 <div class="bar"><div style="width:95%"></div></div>
 </div>
+
 <div class="skill">
-<div class="skill-top"><span>CSS</span><span>90%</span></div>
+<div class="skill-top">
+<span>CSS</span>
+<span>90%</span>
+</div>
 <div class="bar"><div style="width:90%"></div></div>
 </div>
+
 <div class="skill">
-<div class="skill-top"><span>JavaScript</span><span>75%</span></div>
+<div class="skill-top">
+<span>JavaScript</span>
+<span>75%</span>
+</div>
 <div class="bar"><div style="width:75%"></div></div>
 </div>
+
 <div class="skill">
-<div class="skill-top"><span>Responsive Design</span><span>95%</span></div>
+<div class="skill-top">
+<span>Responsive Design</span>
+<span>95%</span>
+</div>
 <div class="bar"><div style="width:95%"></div></div>
 </div>
+
 <div class="skill">
-<div class="skill-top"><span>UI Design</span><span>85%</span></div>
+<div class="skill-top">
+<span>UI Design</span>
+<span>85%</span>
+</div>
 <div class="bar"><div style="width:85%"></div></div>
 </div>
+
 </div>
 </div>
 </section>
+
 <section class="contact" id="contact">
 <div class="contact-box">
+
 <small>START A PROJECT</small>
+
 <h2>Have an idea?<br>Let's build it.</h2>
+
 <p>Tell me what kind of website you need and I'll help turn your idea into a clean, responsive and professional website.</p>
-<a href="mailto:your@email.com" class="btn">Contact Me</a>
+
+<a href="https://wa.me/601129554392" target="_blank" class="btn">
+
+<svg class="whatsapp-icon" viewBox="0 0 32 32">
+<path d="M19.11 17.39c-.28-.14-1.65-.81-1.9-.9-.26-.09-.44-.14-.63.14-.18.28-.72.9-.88 1.09-.16.19-.32.21-.6.07-.28-.14-1.18-.43-2.24-1.38-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.49.14-.16.19-.28.28-.46.09-.19.05-.35-.02-.49-.07-.14-.63-1.52-.86-2.08-.23-.55-.46-.47-.63-.48h-.54c-.19 0-.49.07-.74.35-.26.28-.98.95-.98 2.32s1 2.69 1.14 2.88c.14.19 1.96 2.99 4.75 4.19.66.29 1.18.46 1.58.59.66.21 1.27.18 1.75.11.53-.08 1.65-.67 1.88-1.32.23-.65.23-1.21.16-1.32-.07-.12-.25-.19-.53-.33z"/>
+<path d="M16.03 3.2c-7.05 0-12.78 5.71-12.78 12.75 0 2.25.59 4.46 1.7 6.4L3.14 28.8l6.61-1.73a12.77 12.77 0 006.27 1.6h.01c7.04 0 12.77-5.72 12.77-12.76 0-3.41-1.33-6.61-3.74-9.02A12.68 12.68 0 0016.03 3.2zm0 23.31h-.01a10.6 10.6 0 01-5.4-1.48l-.39-.23-3.92 1.03 1.05-3.82-.25-.39a10.58 10.58 0 01-1.62-5.67c0-5.82 4.74-10.56 10.57-10.56 2.82 0 5.47 1.1 7.46 3.1 2 2 3.1 4.65 3.1 7.47-.02 5.82-4.76 10.55-10.59 10.55z"/>
+</svg>
+
+WhatsApp Me
+
+</a>
+
 </div>
 </section>
+
 <footer>
 <div>© 2026 Enrique Glenn. All Rights Reserved.</div>
 <div>Designed & Built by Enrique.</div>
 </footer>
+
 <script>
 function toggleMenu(){
 document.getElementById("menu").classList.toggle("show")
 }
+
 document.querySelectorAll("nav a").forEach(link=>{
 link.addEventListener("click",()=>{
 document.getElementById("menu").classList.remove("show")
 })
 })
 </script>
+
 </body>
 </html>
